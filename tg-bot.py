@@ -3,7 +3,7 @@ import logging
 import os
 import telegram
 import time
-from telegram.ext import Updater, MessageHandler, Filters
+from telegram.ext import Updater, MessageHandler, CommandHandler, Filters
 from dotenv import load_dotenv
 
 
@@ -33,6 +33,12 @@ def detect_intent_text(project_id, session_id, text, language_code):
 
   return fulfillment_text
 
+
+def start(bot, update):
+
+  update.message.reply_text('Здравствуйте, чем могу помочь?')
+
+
 def respond(bot, update):
 
   query_text = update.message.text
@@ -57,6 +63,7 @@ if __name__ == '__main__':
 
   updater = Updater(tg_bot_token)
   dp = updater.dispatcher
+  dp.add_handler(CommandHandler("start", start))
   dp.add_handler(MessageHandler(Filters.text, respond))
 
   while True:
