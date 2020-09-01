@@ -33,11 +33,9 @@ def detect_intent_text(project_id, session_id, text, language_code):
 
   return fulfillment_text
 
-
 def start(bot, update):
 
   update.message.reply_text('Здравствуйте, чем могу помочь?')
-
 
 def respond(bot, update):
 
