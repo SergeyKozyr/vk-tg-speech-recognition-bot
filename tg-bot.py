@@ -33,15 +33,19 @@ def detect_intent_text(project_id, session_id, text, language_code):
 
   return fulfillment_text
 
-def start(bot, update):
 
+def start(bot, update):
   update.message.reply_text('Здравствуйте, чем могу помочь?')
 
-def respond(bot, update):
 
+def respond(bot, update):
   query_text = update.message.text
   response = detect_intent_text(project_id, session_id, query_text, 'ru')
   update.message.reply_text(response)
+
+
+def error(bot, update, error):
+  logger.warning('Update "%s" caused error "%s"', update, error)
 
 
 if __name__ == '__main__':
@@ -61,6 +65,8 @@ if __name__ == '__main__':
 
   updater = Updater(tg_bot_token)
   dp = updater.dispatcher
+
+  dp.add_error_handler(error)
   dp.add_handler(CommandHandler("start", start))
   dp.add_handler(MessageHandler(Filters.text, respond))
 
