@@ -46,7 +46,7 @@ Send a question ([available questions](https://gist.github.com/SergeyKozyr/e2711
     - For your chat id send, a message to @userinfobot 
 
 
-- Install dependancies
+- Install dependencies
 
         pip install -r requirements.txt
 
