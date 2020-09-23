@@ -13,7 +13,6 @@ logger = logging.getLogger()
 
 
 class MyLogsHandler(logging.Handler):
-
     def __init__(self, logging_bot, chat_id):
         super().__init__()
         self.chat_id = chat_id
@@ -31,8 +30,8 @@ def respond(event, vk_api, text):
         random_id=random.randint(1, 1000)
     )
 
-def detect_intent_text(project_id, session_id, text, language_code):
 
+def detect_intent_text(project_id, session_id, text, language_code='ru'):
     session_client = dialogflow.SessionsClient()
     session = session_client.session_path(project_id, session_id)
     text_input = dialogflow.types.TextInput(text=text, language_code=language_code)
@@ -43,7 +42,6 @@ def detect_intent_text(project_id, session_id, text, language_code):
 
 
 if __name__ == "__main__":
-
     load_dotenv()
     telegram_logging_bot_token = os.getenv('TG_LOGGING_BOT_TOKEN')
     chat_id = os.getenv('TG_CHAT_ID')
@@ -61,11 +59,11 @@ if __name__ == "__main__":
     longpoll = VkLongPoll(vk_session)
 
     while True:
-
         try:
             for event in longpoll.listen():
                 if event.type == VkEventType.MESSAGE_NEW and event.to_me:
-                    response = detect_intent_text(project_id, event.user_id, event.text, 'ru')
+                    session_id = f'vk-{event.user_id}'
+                    response = detect_intent_text(project_id, session_id, event.text)
                     intent_is_fallback = response.query_result.intent.is_fallback
                     text = response.query_result.fulfillment_text
                     if not intent_is_fallback:
