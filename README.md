@@ -29,7 +29,7 @@ Send a question ([available questions](https://gist.github.com/SergeyKozyr/e2711
 Create .env file with the variables:
 
         DIALOGFLOW_PROJECT_ID="Your dialogflow project id"
-        GOOGLE_APPLICATION_CREDENTIALS="google credentials json file"
+        GOOGLE_APPLICATION_CREDENTIALS="path to google credentials json file"
         TG_LOGGING_BOT_TOKEN="Logging bot telegram token"
         TG_BOT_TOKEN="Telegram bot token"
         TG_CHAT_ID="Your telegram chat id"
