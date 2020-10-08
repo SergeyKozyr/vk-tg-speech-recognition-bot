@@ -28,30 +28,34 @@ Send a question ([available questions](https://gist.github.com/SergeyKozyr/e2711
 
 Create .env file with the variables:
 
-        DIALOGFLOW_PROJECT_ID="Your dialogflow project id"
-        GOOGLE_APPLICATION_CREDENTIALS="path to google credentials json file"
-        TG_LOGGING_BOT_TOKEN="Logging bot telegram token"
-        TG_BOT_TOKEN="Telegram bot token"
-        TG_CHAT_ID="Your telegram chat id"
-        VK_COMMUNITY_TOKEN="Your vk group token"
+```
+DIALOGFLOW_PROJECT_ID="Your dialogflow project id"
+GOOGLE_APPLICATION_CREDENTIALS="path to google credentials json file"
+TG_LOGGING_BOT_TOKEN="Logging bot telegram token"
+TG_BOT_TOKEN="Telegram bot token"
+TG_CHAT_ID="Your telegram chat id"
+VK_COMMUNITY_TOKEN="Your vk group token" 
+```
 
-Create a [DialogFlow project](https://cloud.google.com/dialogflow/es/docs/quick/setup), and build an [agent](https://cloud.google.com/dialogflow/es/docs/quick/build-agent). Then create intents and responses for bot.
+Create a [DialogFlow project](https://cloud.google.com/dialogflow/es/docs/quick/setup), and build an [agent](https://cloud.google.com/dialogflow/es/docs/quick/build-agent). Then create intents and responses for bot. 
+
+Intents can also be created using `create_intents.py` script, that parses questions and answers from `questions.json`.
 
 Create [google credentials json file](https://cloud.google.com/docs/authentication/getting-started).
 
 Create [vk group](https://vk.com/groups), in your group click manage -> Api usage and generate an access token with community management and messages access settings.
 
-Telegram bot tokens are available after creation in @BotFather chat. For your chat id send, a message to @userinfobot.
-
+Telegram bot tokens are available after creation in [@BotFather](https://telegram.me/botfather) chat. For your chat id send, a message to [@userinfobot](https://telegram.me/userinfobot).
 
 Install dependencies.
 
-        pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 Run the script, send a message to the bot.
 
-        python vk-bot.py
-        python tg-bot.py
+`python vk-bot.py`
+
+`python tg-bot.py`
 
 ---
 
@@ -67,7 +71,7 @@ Set up environment variables at the Settings tab in Config Vars, [add google cre
 
 Turn on the `bot` process on Resources tab.
 
----
+--- 
 
 ## Project Goals
 The code is written for educational purposes on online-course for web-developers [dvmn.org](https://dvmn.org).
