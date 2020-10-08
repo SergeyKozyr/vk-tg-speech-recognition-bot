@@ -22,8 +22,8 @@ for topic, topic_questions in questions.items():
       'training_phrases': []
   }
 
-for title, intent in intents.items():
-  intent_questions = questions[title]['questions']
+for topic, intent in intents.items():
+  intent_questions = questions[topic]['questions']
 
   for question in intent_questions:
     intent['training_phrases'].append(
