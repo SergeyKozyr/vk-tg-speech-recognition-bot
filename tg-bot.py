@@ -5,7 +5,7 @@ import time
 from functools import partial
 from telegram.ext import Updater, MessageHandler, CommandHandler, Filters
 from dotenv import load_dotenv
-from dialogflow_tools import MyLogsHandler, detect_intent_text
+from utilities import MyLogsHandler, detect_intent_text
 
 
 logger = logging.getLogger()
@@ -23,7 +23,7 @@ def respond(bot, update, project_id):
 
 
 def display_error(bot, update, error):
-  logger.error('Update "%s" caused error "%s"', update, error)
+  logger.error(f'{update} привело к ошибке {error}')
 
 
 if __name__ == '__main__':

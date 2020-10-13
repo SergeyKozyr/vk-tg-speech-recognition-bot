@@ -6,7 +6,7 @@ import logging
 import time
 from dotenv import load_dotenv
 from vk_api.longpoll import VkLongPoll, VkEventType
-from dialogflow_tools import MyLogsHandler, detect_intent_text
+from utilities import MyLogsHandler, detect_intent_text
 
 
 logger = logging.getLogger()
